@@ -65,7 +65,21 @@
 
 	</dependencies>
 	<build>
-		<finalName>${project.artifactId}</finalName>
-		
+		<plugins>
+			<!-- Package as an executable jar/war -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+			        <archive>
+			          <manifest>
+			            <addClasspath>true</addClasspath>
+			            <classpathPrefix>lib/</classpathPrefix>
+			            <mainClass>com.mkyong.SpringBootWebApplication</mainClass>
+			          </manifest>
+			        </archive>
+			     </configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
